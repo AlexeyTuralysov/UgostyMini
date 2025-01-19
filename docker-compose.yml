@@ -29,16 +29,16 @@ services:
       - webnet
    
 
-  #miniapp:
-  #  build: 
-  #    context: ./miniApp
-  #  
-  #  container_name: miniappcontainer
-  #  volumes:
-  #    - ./miniApp/dist:/app/dist
+  miniapp:
+    build: 
+      context: ./miniApp
+    
+    container_name: miniappcontainer
+    volumes:
+      - ./miniApp/dist:/app/dist
 
-  #  ports:
-   #   - "3000:80"
+    ports:
+      - "3000:80"
 
 
   certbot:
