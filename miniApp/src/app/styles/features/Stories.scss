@@ -1,0 +1,23 @@
+.stories-wrapper{
+    display: block;
+    
+    position: relative;
+    padding: 45px;
+    
+}
+.stories-block{
+    height: 150px;
+    width: 120px;
+    border-radius: 11px;
+    border: solid 2px var(--accent-text-color-light);
+    background-color: var(--accent-text-color-light);
+    overflow: hidden;
+
+
+
+    img{
+        width: 120px;
+        height: 100%;
+        object-fit: cover;
+    }
+}

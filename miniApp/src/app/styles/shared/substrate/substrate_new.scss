@@ -1,0 +1,102 @@
+@import '/src/app/styles/pages/global/theme_new';
+
+.screen-slice{
+    display: flex;
+    width: auto;
+}
+
+
+.block-sp{
+    width: 60%;
+}
+
+@mixin substrate_new{
+    background-color: var(--substrate-bg-color);
+    border-radius: 16px;
+}
+
+.sub-statistics{
+    padding: 20px;
+    margin: 15px;
+   
+    
+    width: 50%;
+    height: 50%;
+    @include substrate_new;
+}
+
+.sub-message{
+    @include substrate_new;
+    padding: 20px;
+    margin: 15px;
+    position: relative;
+    
+   
+    span {
+        color: var(--accent-text-color);
+        font-weight: 500;
+        font-size: 15px;
+    }
+    p {
+        color: var(--text-color);
+    }
+
+    .date{
+        position: absolute; 
+        color: var(--text-color);
+        font-weight: 400;
+        font-size: 15px;
+        
+
+        right: 20px;
+        bottom: 10px;
+
+    }
+    .pay{
+        position: absolute;
+        color: var(--text-color);
+        font-weight: 400;
+        font-size: 35px;
+        
+
+        right: 20px;
+        bottom: 50px;
+    }
+    
+
+    
+
+    
+}
+
+
+@media only screen and (max-width: 600px) {
+    .screen-slice{
+        display: block;
+        width: 100%;
+    }
+    .block-sp{
+        width: 100%;
+    }
+
+    @mixin substrate_new{
+        background-color: var(--substrate-bg-color);
+        border-radius: 16px;
+        width: 80%;
+    }
+
+    .sub-statistics{
+        padding: 20px;
+        margin: 15px;
+       
+        
+        width: 50%;
+        
+        @include substrate_new;
+    }
+
+   
+    
+
+
+  }

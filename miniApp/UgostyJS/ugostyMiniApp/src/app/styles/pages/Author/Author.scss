@@ -1,0 +1,102 @@
+.user-block {
+    margin-bottom: 50px;
+
+    // Стили для аватара и основного содержимого
+    .user-avatar {
+
+        position: relative;
+        margin: 0 auto;
+        background-color: gray;
+        border-radius: 50%;
+        width: 90px;
+        height: 90px;
+        overflow: hidden;
+
+
+
+
+        img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%; // Ensure the image covers the container
+            height: auto; // Maintain the aspect ratio
+
+        }
+    }
+
+    .user-name {
+        font-weight: 300;
+        color: var(--text-color);
+        display: flex;
+        justify-content: center;
+        margin: 10px;
+
+        span {
+            font-size: 20px;
+        }
+    }
+
+    .user-stats {
+        font-weight: 300;
+
+        display: flex;
+        justify-content: space-between;
+
+        margin-left: auto;
+        margin-right: auto;
+        width: 90%;
+
+
+        gap: 10px;
+        padding: 20px;
+
+        @media screen and (orientation: landscape) {
+            width: 500px;
+        }
+
+        .user-stats span {
+
+            font-weight: 500;
+
+
+            min-width: 100px; // Задайте минимальную ширину, чтобы элементы не сжимались
+            text-align: center; // Центрируем текст в элементе
+        }
+    }
+
+    // Стили для скелетона (placeholder)
+    &-skeleton {
+        .user-avatar-skeleton {
+            margin: 0 auto;
+            width: 90px;
+            height: 90px;
+
+
+        }
+
+        .user-name-skeleton {
+            display: flex;
+            justify-content: center;
+
+            margin: 40px;
+
+
+        }
+
+        .user-stats-skeleton {
+            display: flex;
+            justify-content: space-between;
+            padding-left: 10%;
+            padding-right:10%;
+
+            span {
+                width: 20%;
+                height: 20px;
+
+                margin: 10px 0;
+            }
+        }
+    }
+}

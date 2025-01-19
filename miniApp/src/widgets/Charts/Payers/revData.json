@@ -1,0 +1,12 @@
+[
+    {
+        "label": "Jan",
+        "revenue": 1,
+        "cost": 365
+    },
+    {
+        "label": "Feb",
+        "revenue": 1,
+        "cost": 365
+    }
+]

@@ -1,0 +1,36 @@
+
+@mixin apply-color($color) {
+    background-color: $color;
+    
+}
+
+
+
+
+
+.treats {
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+    padding: 15px;
+    gap: 10px;
+    height: 15px;
+    min-width: 60px;
+    border-radius: 20px;
+    align-items: center;
+    color: var(--stats-color);
+    background-color: inherit; /* Добавьте это, чтобы убедиться, что фон наследуется */
+
+    
+    
+
+    img {
+        width: 40px;
+    }
+
+    span {
+        font-weight: 500;
+        
+    }
+}
+

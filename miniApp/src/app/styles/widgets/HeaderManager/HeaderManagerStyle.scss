@@ -1,0 +1,94 @@
+body{ margin: 0; padding: 0; }
+
+
+div.content {
+    
+    margin-left: 200px;
+    padding: 1px 16px;
+    height: 1000px;
+  }
+  
+  .sidebar {
+    margin: 0;
+    padding: 10px;
+    width: 100px;
+    background-color: #FDC945;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+    
+    border-radius: 0 20px 0 20px;
+
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+   
+    gap: 20px;
+}
+  
+  .sidebar a {
+    display: block;
+    color: black;
+    padding: 16px;
+    text-decoration: none;
+    width: 35px; /* Ссылка занимает всю ширину блока */
+    border-radius: 10px;
+    text-align: center; /* Центрирование текста внутри ссылки */
+    
+    transition: 0.5s;
+      
+    
+  }
+  .svg {
+    width: 30px;
+    height: 30px;
+    vertical-align: -0.125em;
+    color: #ffffff;
+  }
+   
+  .sidebar a.active {
+    background-color: #FFD875;
+    color: white;
+  }
+  
+  .sidebar a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+  }
+  
+  div.content {
+    margin-left: 200px;
+    padding: 1px 16px;
+    height: 1000px;
+  }
+  
+  @media screen and (max-width: 700px) {
+    .sidebar {
+      width: 100%; /* sidebar занимает всю ширину экрана */
+      height: auto;
+      position: relative;
+      border-radius: 0 0 20px 20px;
+      display: flex;
+      flex-direction: row; /* Поменять направление на горизонтальное, если нужно */
+      justify-content: space-around; /* Разместить элементы равномерно */
+    }
+
+    .sidebar a {
+      width: 100%; /* Ссылки занимают полную ширину родительского контейнера */
+      float: none;
+    }
+
+    div.content {
+      margin-left: 0; /* Убираем отступ для контента */
+    }
+}
+
+
+
+  
+  @media screen and (max-width: 400px) {
+    .sidebar a {
+      text-align: center;
+      float: none;
+    }
+  }
