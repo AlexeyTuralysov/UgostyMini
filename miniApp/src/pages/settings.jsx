@@ -3,7 +3,7 @@ import axios from "axios";
 import { refreshToken } from "../services/auth/RefreshToken";
 
 export const baseUrl = 'https://e823-46-48-232-152.ngrok-free.app';
-export const backEnd = 'http://localhost:8000/';
+export const backEnd = 'http://localhost:8000';
 
 export const paymentUrl = 'http://localhost:2000';
 

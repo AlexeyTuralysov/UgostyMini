@@ -1,0 +1,87 @@
+services:
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+
+    
+    volumes:
+    - ./nginx/nginxdev.conf:/etc/nginx/nginx.conf
+    - ./miniApp/dist:/usr/share/nginx/html
+
+
+    ports:
+      - "80:80"
+
+    depends_on:
+        - miniapp
+ 
+
+    networks:
+      - webnet
+   
+
+  miniapp:
+    build: 
+      context: ./miniApp
+    
+    container_name: miniappcontainer
+    volumes:
+      - ./miniApp/dist:/app/dist
+
+    ports:
+      - "3000:80"
+
+
+
+  backend-main:
+    container_name: backend
+    command: gunicorn UgostyMainService.wsgi:application --bind 0.0.0.0:8000
+
+    build:
+      context: ./UgostyMainService
+      dockerfile: Dockerfile
+
+    volumes:
+      - ./UgostyMainService/:/usr/src/UgostyMainService/
+      - ./UgostyMainService/media/:/app/UgostyMainService/media/
+
+    ports:
+      - "8000:8000"
+
+
+  db:
+    container_name: postgres_container
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: test_db
+
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data
+
+    ports:
+      - "5432:5432"
+
+
+
+
+  pgadmin:
+
+    container_name: pgadmin4_container
+    image: 'docker.io/dpage/pgadmin4:latest'
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: root
+    
+    ports:
+      - "5050:80"
+
+
+
+
+networks:
+  webnet:
+    driver: bridge

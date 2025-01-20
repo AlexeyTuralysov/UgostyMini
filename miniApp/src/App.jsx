@@ -5,7 +5,7 @@ import Home from "./pages/Home/Home";
 
 function App() {
 
-  //const author = "alexey";
+  const author = "alexey";
 
   //const launchParams = useLaunchParams();
   //const author = launchParams.startParam;
@@ -15,7 +15,8 @@ function App() {
      
       <Routes>
         
-        <Route path="/:author" element={<Author />} />
+        <Route path="/:author" element={<Author author={author} />} />
+        <Route path='/' element ={ <Home/> } />
       </Routes>
     
 
