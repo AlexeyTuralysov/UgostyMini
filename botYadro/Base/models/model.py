@@ -9,7 +9,7 @@ from sqlalchemy.orm import declarative_base, relationship
 
 Base = declarative_base()
 class TelegramProfile(Base):
-    __tablename__ = 'accounts_telegramprofile'
+    __tablename__ = 'telegram_profiles'
     id_telegram = Column(Integer, unique=True, nullable=False, primary_key=True)
     chat_id = Column(Integer, nullable=False)  # Поле chat_id, айди чата с ботом
 
