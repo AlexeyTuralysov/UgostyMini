@@ -36,7 +36,7 @@ router = Router()
 async def create_handler(message: Message, state: FSMContext) -> None:
     await state.set_state(Post.thumbnail)
     #await message.answer("Закинь  картинку в формате .jpg")
-    await message.answer_photo(types.FSInputFile("./static/embeddedpic/Asset 3.png"), caption="Отправь мне картинку в формате .jpg или же .png")
+    await message.answer_photo(types.FSInputFile("./static/embeddedpic/Asset 2.png"), caption="Отправь мне картинку в формате .jpg или же .png")
 
 
 
@@ -57,7 +57,7 @@ async def thumbnail_handler(message: Message, state: FSMContext) -> None:
 
         await state.set_state(Post.button_text)
         #await message.answer("Заголовок для Кнопки")
-        await message.answer_photo(types.FSInputFile("./static/embeddedpic/Asset 1.png"), caption="Отправь мне заголовок для Кнопки")
+        await message.answer_photo(types.FSInputFile("./static/embeddedpic/Asset 3.png"), caption="Отправь мне заголовок для Кнопки")
 
 
 @router.message(Post.button_text)
@@ -85,7 +85,7 @@ async def button_link_handler(message: Message, state: FSMContext) -> None:
         await state.update_data(button_link=message.text)
         await state.set_state(Post.text)
         #await message.answer("Введите текст")
-        await message.answer_photo(types.FSInputFile("./static/embeddedpic/Asset 5.png"),
+        await message.answer_photo(types.FSInputFile("./static/embeddedpic/Asset 4.png"),
                                    caption="Отправь мне текст для твоего поста.")
 
 
