@@ -5,10 +5,10 @@ import Home from "./pages/Home/Home";
 
 function App() {
 
-  const author = "alexey";
+  //const author = "alexey";
 
-  //const launchParams = useLaunchParams();
-  //const author = launchParams.startParam;
+  const launchParams = useLaunchParams();
+  const author = launchParams.startParam;
   //const author = launchParams.startParam;
   return (
     <>
