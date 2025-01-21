@@ -1,7 +1,7 @@
 
 import { useEffect, useState } from 'react';
 
-import { useParams } from 'react-router-dom'
+//import { useParams } from 'react-router-dom'
 
 import '../../app/styles/pages/Author/Author.scss'
 import '../../app/styles/shared/substrate/substrate.scss'
@@ -21,8 +21,8 @@ import DonationContainerBanned from './service/DonationContainerBanned';
 import Owner from './owner/Owner';
 
 
-export default function Author() {
-  const { author } = useParams();
+export default function Author({ author }) {
+  //const { author } = useParams();
  
 
   const [data, setData] = useState({});

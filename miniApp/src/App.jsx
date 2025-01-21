@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import Author from "./pages/Author/Author";
 import { useLaunchParams } from "@telegram-apps/sdk-react";
-import Home from "./pages/Home/Home";
+//import Home from "./pages/Home/Home";
 
 function App() {
 
@@ -16,7 +16,7 @@ function App() {
       <Routes>
         
         <Route path="/:author" element={<Author author={author} />} />
-        <Route path='/' element ={ <Home/> } />
+    
       </Routes>
     
 
