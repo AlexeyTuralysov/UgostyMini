@@ -55,7 +55,20 @@ services:
         - webnet
     
 
+  backend-main:
+    container_name: backend
+    command: gunicorn UgostyMainService.wsgi:application --bind 0.0.0.0:8000
 
+    build:
+      context: ./UgostyMainService
+      dockerfile: Dockerfile
+
+    volumes:
+      - ./UgostyMainService/:/usr/src/UgostyMainService/
+      - ./UgostyMainService/media/:/app/UgostyMainService/media/
+
+    ports:
+      - "8000:8000"
 
   db:
     container_name: postgres_container
