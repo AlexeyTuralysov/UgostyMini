@@ -96,11 +96,19 @@ services:
     environment:
       PGADMIN_DEFAULT_EMAIL: alexeyturalysov@gmail.com
       PGADMIN_DEFAULT_PASSWORD: Alexey200676
-    
+
+      PGADMIN_CONFIG_CHECK_EMAIL_DELIVERABILITY: "False"
+      PGADMIN_CONFIG_SECURITY_EMAIL_VALIDATOR_ARGS: "{\"check_deliverability\": CHECK_EMAIL_DELIVERABILITY}"
+
+    volumes:
+         - pgadmin_data:/var/lib/pgadmin
+
     ports:
       - "5050:5050"
 
 
+volumes:
+     pgadmin_data:
 
 networks:
   webnet:
