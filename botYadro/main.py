@@ -29,7 +29,7 @@ from admin.builder.classBuilder import builderPostsClass
 
 
 
-TOKEN = ""
+TOKEN = "7234999279:AAEA9-jkBBk7GQ66kGuDVeaLLC983MaQIz0"
 PAYMENT_PROVIDER_TOKEN = '381764678:TEST:108057'
 
 bot = Bot(token=TOKEN, default=DefaultBotProperties(parse_mode=ParseMode.HTML))

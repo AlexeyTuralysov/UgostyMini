@@ -4,6 +4,7 @@ from aiogram.filters import Command
 from aiogram.fsm.context import FSMContext
 from aiogram.fsm.state import StatesGroup, State
 from aiogram.types import Message
+from aiogram import types
 
 from admin.builder.classBuilder import builderPostsClass
 from admin.decorations.adminDecoration import for_admin
@@ -34,8 +35,8 @@ router = Router()
 @for_admin
 async def create_handler(message: Message, state: FSMContext) -> None:
     await state.set_state(Post.thumbnail)
-    await message.answer("Закинь картинку")
-
+    #await message.answer("Закинь  картинку в формате .jpg")
+    await message.answer_photo(types.FSInputFile("./static/embeddedpic/Asset 3.png"), caption="Отправь мне картинку в формате .jpg или же .png")
 
 
 
@@ -55,7 +56,8 @@ async def thumbnail_handler(message: Message, state: FSMContext) -> None:
 
 
         await state.set_state(Post.button_text)
-        await message.answer("Заголовок для Кнопки")
+        #await message.answer("Заголовок для Кнопки")
+        await message.answer_photo(types.FSInputFile("./static/embeddedpic/Asset 1.png"), caption="Отправь мне заголовок для Кнопки")
 
 
 @router.message(Post.button_text)
@@ -67,7 +69,10 @@ async def button_text_handler(message: Message, state: FSMContext) -> None:
     else:
         await state.update_data(button_text=message.text)
         await state.set_state(Post.button_link)
-        await message.answer("Cсылка?")
+
+        #await message.answer("Cсылка?")
+        await message.answer_photo(types.FSInputFile("./static/embeddedpic/Asset 5.png"),
+                                   caption="Отправь мне ссылку в формате желательно с https, чтобы твои пользователи не видели сообщение о возможной угрозе.")
 
 
 @router.message(Post.button_link)
@@ -79,7 +84,9 @@ async def button_link_handler(message: Message, state: FSMContext) -> None:
     else:
         await state.update_data(button_link=message.text)
         await state.set_state(Post.text)
-        await message.answer("Введите текст")
+        #await message.answer("Введите текст")
+        await message.answer_photo(types.FSInputFile("./static/embeddedpic/Asset 5.png"),
+                                   caption="Отправь мне текст для твоего поста.")
 
 
 
