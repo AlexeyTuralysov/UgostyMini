@@ -8,14 +8,14 @@ function App() {
   //const author = "alexey";
 
   const launchParams = useLaunchParams();
-  const author = launchParams.startParam;
+  const author = launchParams.startParam
   //const author = launchParams.startParam;
   return (
     <>
      
       <Routes>
         
-        <Route path="/:author" element={<Author author={author} />} />
+        <Route path="/" element={<Author author={author} />} />
     
       </Routes>
     
