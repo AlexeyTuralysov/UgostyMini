@@ -75,6 +75,7 @@ services:
       - ./UgostyMainService/media/:/app/UgostyMainService/media/
       - ./UgostyMainService/media/:/app/UgostyMainService/media/
       - ./UgostyMainService/staticfiles/:/app/UgostyMainService/staticfiles/
+     
       
     ports:
       - "8000:8000"
