@@ -20,7 +20,7 @@ services:
     depends_on:
         - miniapp
         - certbot
-        - backend
+        - backend-main
 
     networks:
       - webnet
