@@ -73,7 +73,7 @@ services:
     volumes:
       - ./UgostyMainService/:/usr/src/UgostyMainService/
       - ./UgostyMainService/media/:/app/UgostyMainService/media/
-      - ./UgostyMainService/media/:/app/UgostyMainService/media/
+     
       - ./UgostyMainService/staticfiles/:/app/UgostyMainService/staticfiles/
      
       
