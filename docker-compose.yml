@@ -13,6 +13,8 @@ services:
     - ./data/certbot/conf:/etc/letsencrypt
     - ./data/certbot/www:/var/www/certbot
 
+    
+
 
 
     
@@ -72,7 +74,7 @@ services:
       - ./UgostyMainService/:/usr/src/UgostyMainService/
       - ./UgostyMainService/media/:/app/UgostyMainService/media/
       - ./UgostyMainService/media/:/app/UgostyMainService/media/
-      - ./UgostyMainService/static/:/app/UgostyMainService/static/
+      - ./UgostyMainService/staticfiles/:/app/UgostyMainService/staticfiles/
       
     ports:
       - "8000:8000"
@@ -115,6 +117,7 @@ services:
 volumes:
   db_data:
   pgadmin_data:
+ 
 
 
 
