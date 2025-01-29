@@ -1,21 +1,29 @@
 import { Routes, Route } from 'react-router-dom';
 import Author from "./pages/Author/Author";
 import { useLaunchParams } from "@telegram-apps/sdk-react";
-//import Home from "./pages/Home/Home";
+import Home from "./pages/Home/Home";
 
 function App() {
 
-  //const author = "alexey";
+  //const author = "";
 
   const launchParams = useLaunchParams();
-  const author = launchParams.startParam
-  //const author = launchParams.startParam;
+  //const author = launchParams.startParam
+  const author = launchParams.startParam;
+
+  
   return (
     <>
      
       <Routes>
+        {author 
+          ? <Route path="/" element={<Author author={author} />} />
+          : <Route path="/" element={<Home />} /> 
+
+        }
         
-        <Route path="/" element={<Author author={author} />} />
+    
+        
     
       </Routes>
     

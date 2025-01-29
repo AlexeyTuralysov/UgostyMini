@@ -165,10 +165,10 @@ DATABASES = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'test_db',
+        'NAME': 'databaseugosty',
         'USER': 'root',
-        'PASSWORD': 'root',
-        'HOST': '172.20.0.1',
+        'PASSWORD': 'ugostyUSER',
+        'HOST': 'postgres_ugosty',
         'PORT': '5432',
     }
 }

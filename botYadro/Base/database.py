@@ -7,7 +7,7 @@ from dotenv import dotenv_values
 
 
 #DATABASE_URL ="postgresql+asyncpg://postgres:postgres@localhost:5432/TestDg"
-DATABASE_URL ="postgresql+asyncpg://root:root@172.20.0.1:5432/test_db"
+DATABASE_URL ="postgresql+asyncpg://root:ugostyUSER@postgres_ugosty:5432/databaseugosty"
 
 #DATABASE_URL =f"postgresql+asyncpg://{config.get("DATABASE_USER")}:{config.get("DATABASE_PASS")}@{config.get("DATABASE_HOST")}:5432/{config.get("DATABASE_NAME")}"
 

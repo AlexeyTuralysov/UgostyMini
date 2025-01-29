@@ -39,6 +39,10 @@ services:
     build: ./botYadro
     container_name: yadrobot
 
+    networks:
+      - webnet
+      - dbugostynet
+
     
 
   miniapp:
@@ -47,6 +51,7 @@ services:
     
     container_name: miniappcontainer
     volumes:
+      - ./miniApp/dist:/app/dist
       - ./miniApp/dist:/app/dist
 
     ports:
@@ -84,21 +89,9 @@ services:
 
     networks:
       - webnet
+      - dbugostynet
 
-  db:
-    container_name: postgres_container
-    image: postgres
-    restart: always
-    environment:
-      POSTGRES_USER: root
-      POSTGRES_PASSWORD: root
-      POSTGRES_DB: test_db
 
-    volumes:
-      - db_data:/postgres-data:/var/lib/postgresql/data
-
-    ports:
-      - "5432:5432"
 
 
 
@@ -117,6 +110,10 @@ services:
     ports:
       - "5050:80"
 
+    networks:
+      - webnet
+      - dbugostynet
+
 volumes:
   db_data:
   pgadmin_data:
@@ -127,3 +124,6 @@ volumes:
 networks:
   webnet:
     driver: bridge
+
+  dbugostynet:
+    external: true

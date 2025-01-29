@@ -4,7 +4,7 @@ export default function DonationContainerBanned() {
   return (
     <div className='substrate block-donation-banned'>
         <div>
-            <img width="400px" src="/public/Asset 12.png" alt=""/>
+            <img width="400px" src="/images/Asset 12.png" alt=""/>
 
             <div className='forms-donate banned banned-30'>
                 
