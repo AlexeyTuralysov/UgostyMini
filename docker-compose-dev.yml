@@ -7,6 +7,7 @@ services:
     volumes:
     - ./nginx/nginxdev.conf:/etc/nginx/nginx.conf
     - ./miniApp/dist:/usr/share/nginx/html
+    - ./UgostyMainService/media:/app/UgostyMainService/media  
 
 
     ports:
@@ -54,7 +55,15 @@ services:
 
 
 
+  yadrobot:
+    build: ./botYadro
+    container_name: yadrobot
+    ports:
+      - "4000:4000"
 
+    networks:
+      - webnet
+      - dbugostynet
 
 
 

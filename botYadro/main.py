@@ -1,6 +1,7 @@
 import os
 import sys
 
+import uvicorn
 from aiogram import Bot, Dispatcher
 from aiogram.client.default import DefaultBotProperties
 from aiogram.enums import ParseMode
@@ -12,6 +13,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from admin.commands import router as admincommands
 from userCommands.userCommands import router as usercommands
+from miniapp.createPay import router as createpay
 
 from aiogram import F
 import asyncio
@@ -26,6 +28,12 @@ from aiogram.types.input_file import FSInputFile
 
 from admin.builder.classBuilder import builderPostsClass
 
+from fastapi import APIRouter, FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+
+
+from webhook.webhook_Pay import webhookPay
+from webhook.webhook_Pay import router as webhookPayRouter
 
 
 
@@ -37,6 +45,30 @@ bot = Bot(token=TOKEN, default=DefaultBotProperties(parse_mode=ParseMode.HTML))
 dp = Dispatcher()
 dp.include_routers(admincommands)
 dp.include_router(usercommands)
+dp.include_router(createpay)
+
+dp.include_router(webhookPayRouter)
+
+
+
+
+app = FastAPI(title="Payment API")
+
+origins = [
+    "*"
+    "http://localhost",
+    "http://localhost:8080",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+app.include_router(webhookPay)
+
 
 import logging
 
@@ -273,9 +305,15 @@ async def pages(message: Message) -> None:
 
 
 async def main() -> None:
+    #await dp.start_polling(bot,allowed_updates=dp.resolve_used_update_types())
+    server = uvicorn.Server(uvicorn.Config(app, host="0.0.0.0", port=4000))
+    asyncio.create_task(server.serve())
+
+    # Запускаем бота
     await dp.start_polling(bot)
 
 
 if __name__ == "__main__":
-    logging.basicConfig(level=logging.INFO, stream=sys.stdout)
+    #logging.basicConfig(level=logging.INFO, stream=sys.stdout)
+    #uvicorn.run(app, host="0.0.0.0", port=4000)
     asyncio.run(main())

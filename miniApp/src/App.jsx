@@ -1,20 +1,47 @@
 import { Routes, Route } from 'react-router-dom';
 import Author from "./pages/Author/Author";
-import { useLaunchParams } from "@telegram-apps/sdk-react";
+import { useEffect } from 'react';
+import { useLaunchParams, isTMA, init, viewport } from "@telegram-apps/sdk-react";
 import Home from "./pages/Home/Home";
 
 function App() {
 
-  //const author = "";
+  const author = "root";
 
-  const launchParams = useLaunchParams();
+  //const launchParams = useLaunchParams();
   //const author = launchParams.startParam
-  const author = launchParams.startParam;
+  //const author = launchParams.startParam;
 
-  
+  useEffect(() => {
+    async function initTg() {
+      if (await isTMA()) {
+        init();
+
+        if (viewport.mount.isAvailable()) {
+          await viewport.mount();
+          viewport.expand();
+        }
+
+        if (viewport.requestFullscreen.isAvailable()) {
+          await viewport.requestFullscreen();
+        }
+      }
+    }
+    initTg();
+
+  }, []);
+
+
   return (
     <>
+ 
+      <Routes>
+           <Route path="/" element={<Author author={author} />} />
+      </Routes>
+
      
+
+{/*        
       <Routes>
         {author 
           ? <Route path="/" element={<Author author={author} />} />
@@ -26,7 +53,9 @@ function App() {
         
     
       </Routes>
-    
+
+     */}
+
 
       {/*
       <Routes>

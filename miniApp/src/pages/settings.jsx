@@ -2,14 +2,14 @@
 import axios from "axios";
 import { refreshToken } from "../services/auth/RefreshToken";
 
-export const baseUrl = 'https://e823-46-48-232-152.ngrok-free.app';
-export const backEnd = 'https://ugosty.ru';
+export const baseUrl = 'https://backend:8000';
+export const backEnd = '';
 
 export const paymentUrl = 'http://localhost:2000';
 
 //export const paymentUrl = 'http://localhost:2000/donate';
 export const apiClient = axios.create({
-    baseURL: 'https://ugosty.ru/',
+    baseURL: '',
     headers: {
 
     }

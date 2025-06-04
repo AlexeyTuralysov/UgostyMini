@@ -1,11 +1,8 @@
-
 import PropTypes from 'prop-types';
-
-
-import { declineFirstname, detectGender } from 'lvovich';
 import { inclineLastname } from 'lvovich';
 
 export function Greeting({ name }) {
+  if (!name) return <h3>Угости гостя</h3>; // Заглушка
 
   const detectLanguage = (name) => {
     const cyrillicPattern = /[а-яА-ЯЁё]/;
@@ -16,16 +13,14 @@ export function Greeting({ name }) {
   let result;
 
   if (language === 'ru') {
-      result = inclineLastname(name, 'accusative');
+    result = inclineLastname(name, 'accusative');
   } else if (language === 'en') {
-      result = name.endsWith('s') ? `${name}'` : `${name}'s`; 
+    result = name.endsWith('s') ? `${name}'` : `${name}'s`; 
   } else {
-      result = name; 
+    result = name; 
   }
 
-  return (
-    <h3 >Угости {result}</h3>
-  );
+  return <h3>Угости {result}</h3>;
 }
 
 Greeting.propTypes = {
